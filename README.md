@@ -1,4 +1,4 @@
-# go-caseconv
+# go-caseconv [ ![Codeship Status for minodisk/go-caseconv](https://app.codeship.com/projects/900fad50-c6e0-0134-ad8d-6634c9578aaa/status?branch=master)](https://app.codeship.com/projects/198764) [![Go Report Card](https://goreportcard.com/badge/github.com/minodisk/go-caseconv)](https://goreportcard.com/report/github.com/minodisk/go-caseconv) [![GoDoc](https://godoc.org/github.com/minodisk/go-caseconv?status.png)](https://godoc.org/github.com/minodisk/go-caseconv)
 
 Converting cases.
 
