@@ -56,6 +56,7 @@ func UpperCamelCase(s string) string {
 	return CamelCase(s, unicode.ToUpper)
 }
 
+// ConvertFunc converts a given character to another case.
 type ConvertFunc func(rune) rune
 
 // CamelCase converts the characters after non alphabetical
