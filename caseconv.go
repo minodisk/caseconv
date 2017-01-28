@@ -22,6 +22,18 @@ func SnakeCase(s string) string {
 	return Delimit(s, "_")
 }
 
+func LowerHyphens(s string) string {
+	return strings.ToLower(Hyphens(s))
+}
+
+func UpperHyphens(s string) string {
+	return strings.ToUpper(Hyphens(s))
+}
+
+func Hyphens(s string) string {
+	return Delimit(s, "-")
+}
+
 // Delimit slices s into all substrings at lower and upper
 // boundaries and before numeric characters,
 // and concatenates the substrings with sep.

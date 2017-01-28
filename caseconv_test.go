@@ -225,3 +225,168 @@ func TestUpperCamelCase(t *testing.T) {
 		}
 	}
 }
+
+func TestHyphens(t *testing.T) {
+	type Case struct {
+		Input    string
+		Expected string
+	}
+	cases := []Case{
+		Case{
+			Input:    "lower spaced string",
+			Expected: "lower-spaced-string",
+		},
+		Case{
+			Input:    "Upper Spaced String",
+			Expected: "Upper-Spaced-String",
+		},
+		Case{
+			Input:    "lower_snake_case",
+			Expected: "lower-snake-case",
+		},
+		Case{
+			Input:    "Upper_Snake_Case",
+			Expected: "Upper-Snake-Case",
+		},
+		Case{
+			Input:    "lower-hyphens",
+			Expected: "lower-hyphens",
+		},
+		Case{
+			Input:    "Upper-Hyphens",
+			Expected: "Upper-Hyphens",
+		},
+		Case{
+			Input:    "lowerCamelCase",
+			Expected: "lower-Camel-Case",
+		},
+		Case{
+			Input:    "UpperCamelCase",
+			Expected: "Upper-Camel-Case",
+		},
+		Case{
+			Input:    "numeric 00 string",
+			Expected: "numeric-00-string",
+		},
+		Case{
+			Input:    "_mixed veryUgly_00_Case_",
+			Expected: "-mixed-very-Ugly-00-Case-",
+		},
+	}
+	for _, c := range cases {
+		actual := caseconv.Hyphens(c.Input)
+		if actual != c.Expected {
+			t.Errorf(`Hyphes("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+		}
+	}
+}
+
+func TestLowerHyphens(t *testing.T) {
+	type Case struct {
+		Input    string
+		Expected string
+	}
+	cases := []Case{
+		Case{
+			Input:    "lower spaced string",
+			Expected: "lower-spaced-string",
+		},
+		Case{
+			Input:    "Upper Spaced String",
+			Expected: "upper-spaced-string",
+		},
+		Case{
+			Input:    "lower_snake_case",
+			Expected: "lower-snake-case",
+		},
+		Case{
+			Input:    "Upper_Snake_Case",
+			Expected: "upper-snake-case",
+		},
+		Case{
+			Input:    "lower-hyphens",
+			Expected: "lower-hyphens",
+		},
+		Case{
+			Input:    "Upper-Hyphens",
+			Expected: "upper-hyphens",
+		},
+		Case{
+			Input:    "lowerCamelCase",
+			Expected: "lower-camel-case",
+		},
+		Case{
+			Input:    "UpperCamelCase",
+			Expected: "upper-camel-case",
+		},
+		Case{
+			Input:    "numeric 00 string",
+			Expected: "numeric-00-string",
+		},
+		Case{
+			Input:    "_mixed veryUgly_00_Case_",
+			Expected: "-mixed-very-ugly-00-case-",
+		},
+	}
+	for _, c := range cases {
+		actual := caseconv.LowerHyphens(c.Input)
+		if actual != c.Expected {
+			t.Errorf(`LowerHyphes("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+		}
+	}
+}
+
+func TestUpperHyphens(t *testing.T) {
+	type Case struct {
+		Input    string
+		Expected string
+	}
+	cases := []Case{
+		Case{
+			Input:    "lower spaced string",
+			Expected: "LOWER-SPACED-STRING",
+		},
+		Case{
+			Input:    "Upper Spaced String",
+			Expected: "UPPER-SPACED-STRING",
+		},
+		Case{
+			Input:    "lower_snake_case",
+			Expected: "LOWER-SNAKE-CASE",
+		},
+		Case{
+			Input:    "Upper_Snake_Case",
+			Expected: "UPPER-SNAKE-CASE",
+		},
+		Case{
+			Input:    "lower-hyphens",
+			Expected: "LOWER-HYPHENS",
+		},
+		Case{
+			Input:    "Upper-Hyphens",
+			Expected: "UPPER-HYPHENS",
+		},
+		Case{
+			Input:    "lowerCamelCase",
+			Expected: "LOWER-CAMEL-CASE",
+		},
+		Case{
+			Input:    "UpperCamelCase",
+			Expected: "UPPER-CAMEL-CASE",
+		},
+		Case{
+			Input:    "numeric 00 string",
+			Expected: "NUMERIC-00-STRING",
+		},
+		Case{
+			Input:    "_mixed veryUgly_00_Case_",
+			Expected: "-MIXED-VERY-UGLY-00-CASE-",
+		},
+	}
+	for _, c := range cases {
+		actual := caseconv.UpperHyphens(c.Input)
+		if actual != c.Expected {
+			t.Errorf(`UpperHyphens("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+		}
+	}
+}
