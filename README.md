@@ -11,17 +11,12 @@ go get github.com/minodisk/go-caseconv
 ## Usage
 
 ```go
-caseconv.LowerSnakeCase("Foo bar baz") // -> "foo_bar_baz"
-caseconv.LowerSnakeCase("FooBarBaz0")  // -> "foo_bar_baz_0"
-
-caseconv.UpperSnakeCase("Foo bar baz") // -> "FOO_BAR_BAZ"
-caseconv.UpperSnakeCase("FooBarBaz0")  // -> "FOO_BAR_BAZ_0"
-
-caseconv.LowerCamelCase("Foo bar baz") // -> "fooBarBaz"
-caseconv.LowerCamelCase("foo_bar_baz") // -> "fooBarBaz"
-caseconv.LowerCamelCase("FooBarBaz0")  // -> "fooBarBaz0"
-
-caseconv.UpperCamelCase("Foo bar baz") // -> "FooBarBaz"
-caseconv.UpperCamelCase("foo_bar_baz") // -> "FooBarBaz"
-caseconv.UpperCamelCase("fooBarBaz0")  // -> "FooBarBaz0"
+caseconv.LowerCamelCase(`Obi-Wan "Ben" Kenobi`) // -> "obiWanBenKenobi"
+caseconv.UpperCamelCase(`Obi-Wan "Ben" Kenobi`) // -> "ObiWanBenKenobi"
+caseconv.SnakeCase(`Obi-Wan "Ben" Kenobi`)      // -> "Obi_Wan_Ben_Kenobi"
+caseconv.LowerSnakeCase(`Obi-Wan "Ben" Kenobi`) // -> "obi_wan_ben_kenobi"
+caseconv.UpperSnakeCase(`Obi-Wan "Ben" Kenobi`) // -> "OBI_WAN_BEN_KENOBI"
+caseconv.Hyphens(`Obi-Wan "Ben" Kenobi`)        // -> "Obi-Wan-Ben-Kenobi"
+caseconv.LowerHyphens(`Obi-Wan "Ben" Kenobi`)   // -> "obi-wan-ben-kenobi"
+caseconv.UpperHyphens(`Obi-Wan "Ben" Kenobi`)   // -> "OBI-WAN-BEN-KENOBI"
 ```

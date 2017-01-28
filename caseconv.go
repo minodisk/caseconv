@@ -7,57 +7,6 @@ import (
 	"unicode"
 )
 
-// LowerSnakeCase converts s to lower snake case.
-func LowerSnakeCase(s string) string {
-	return strings.ToLower(SnakeCase(s))
-}
-
-// UpperSnakeCase converts s to upper snake case.
-func UpperSnakeCase(s string) string {
-	return strings.ToUpper(SnakeCase(s))
-}
-
-// SnakeCase converts s to snake case.
-func SnakeCase(s string) string {
-	return Delimit(s, "_")
-}
-
-func LowerHyphens(s string) string {
-	return strings.ToLower(Hyphens(s))
-}
-
-func UpperHyphens(s string) string {
-	return strings.ToUpper(Hyphens(s))
-}
-
-func Hyphens(s string) string {
-	return Delimit(s, "-")
-}
-
-// Delimit slices s into all substrings at lower and upper
-// boundaries and before numeric characters,
-// and concatenates the substrings with sep.
-func Delimit(s, sep string) string {
-	var b bytes.Buffer
-	for i, c := range s {
-		switch {
-		case upper(c):
-			if i > 0 {
-				p := rune(s[i-1])
-				if lower(p) {
-					b.WriteString(sep)
-				}
-			}
-			b.WriteRune(c)
-		case !(alphabetical(c) || numeric(c)):
-			b.WriteString(sep)
-		default:
-			b.WriteRune(c)
-		}
-	}
-	return b.String()
-}
-
 // LowerCamelCase converts s to lower camel case.
 func LowerCamelCase(s string) string {
 	return CamelCase(s, unicode.ToLower)
@@ -76,22 +25,87 @@ type ConvertFunc func(rune) rune
 func CamelCase(s string, convert ConvertFunc) string {
 	var b bytes.Buffer
 	first := true
-	apply := false
+	skipped := false
 	for i := 0; i < len(s); i++ {
 		c := rune(s[i])
 		switch {
 		case !(alphabetical(c) || numeric(c)):
-			apply = true
+			skipped = true
 		case first:
-			first = false
-			apply = false
 			b.WriteRune(convert(c))
-		case apply:
-			apply = false
+			first = false
+			skipped = false
+		case skipped:
 			b.WriteRune(unicode.ToUpper(c))
+			skipped = false
 		default:
-			apply = false
 			b.WriteRune(c)
+			skipped = false
+		}
+	}
+	return b.String()
+}
+
+// SnakeCase converts s to snake case.
+func SnakeCase(s string) string {
+	return Delimit(s, "_")
+}
+
+// LowerSnakeCase converts s to lower snake case.
+func LowerSnakeCase(s string) string {
+	return strings.ToLower(SnakeCase(s))
+}
+
+// UpperSnakeCase converts s to upper snake case.
+func UpperSnakeCase(s string) string {
+	return strings.ToUpper(SnakeCase(s))
+}
+
+// Hyphens converts s to hyphenated string.
+func Hyphens(s string) string {
+	return Delimit(s, "-")
+}
+
+// LowerHyphens converts s to lowercase hyphenated string.
+func LowerHyphens(s string) string {
+	return strings.ToLower(Hyphens(s))
+}
+
+// UpperHyphens converts s to uppercase hyphenated string.
+func UpperHyphens(s string) string {
+	return strings.ToUpper(Hyphens(s))
+}
+
+// Delimit slices s into all substrings at lower and upper
+// boundaries and before numeric characters,
+// and concatenates the substrings with sep.
+func Delimit(s, sep string) string {
+	var (
+		b         bytes.Buffer
+		separated bool
+	)
+	for i, c := range s {
+		switch {
+		case upper(c):
+			if i > 0 {
+				p := rune(s[i-1])
+				if lower(p) {
+					if !separated {
+						b.WriteString(sep)
+						separated = true
+					}
+				}
+			}
+			b.WriteRune(c)
+			separated = false
+		case !(alphabetical(c) || numeric(c)):
+			if !separated {
+				b.WriteString(sep)
+				separated = true
+			}
+		default:
+			b.WriteRune(c)
+			separated = false
 		}
 	}
 	return b.String()
