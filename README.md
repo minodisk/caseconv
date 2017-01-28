@@ -4,7 +4,7 @@ Converting cases.
 
 ## Installation
 
-```go
+```bash
 go get github.com/minodisk/go-caseconv
 ```
 
