@@ -1,11 +1,11 @@
-# go-caseconv [ ![Codeship Status for minodisk/go-caseconv](https://app.codeship.com/projects/900fad50-c6e0-0134-ad8d-6634c9578aaa/status?branch=master)](https://app.codeship.com/projects/198764) [![Go Report Card](https://goreportcard.com/badge/github.com/minodisk/go-caseconv)](https://goreportcard.com/report/github.com/minodisk/go-caseconv) [![GoDoc](https://godoc.org/github.com/minodisk/go-caseconv?status.png)](https://godoc.org/github.com/minodisk/go-caseconv)
+# caseconv [ ![Codeship Status for minodisk/caseconv](https://img.shields.io/codeship/900fad50-c6e0-0134-ad8d-6634c9578aaa/master.svg?style=flat)](https://app.codeship.com/projects/198764) [![Go Report Card](https://goreportcard.com/badge/github.com/minodisk/caseconv)](https://goreportcard.com/report/github.com/minodisk/caseconv) [![Coverage Status](https://img.shields.io/coveralls/minodisk/caseconv/master.svg?style=flat)](https://coveralls.io/github/minodisk/caseconv?branch=master) [![GoDoc](https://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat)](https://godoc.org/github.com/minodisk/caseconv) [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 Converting cases.
 
 ## Installation
 
 ```bash
-go get github.com/minodisk/go-caseconv
+go get github.com/minodisk/caseconv
 ```
 
 ## Usage

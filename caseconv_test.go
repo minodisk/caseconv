@@ -3,7 +3,7 @@ package caseconv_test
 import (
 	"testing"
 
-	caseconv "github.com/minodisk/go-caseconv"
+	"github.com/minodisk/caseconv"
 )
 
 func TestLowerCamelCase(t *testing.T) {

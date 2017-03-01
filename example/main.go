@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	caseconv "github.com/minodisk/go-caseconv"
+	"github.com/minodisk/caseconv"
 )
 
 func main() {
