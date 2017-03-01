@@ -1,0 +1,3 @@
+caseconv:
+  build: .
+  encrypted_env_file: coveralls.env.encrypted
