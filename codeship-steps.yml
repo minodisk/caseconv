@@ -1,3 +1,6 @@
 - name: test
   service: caseconv
-  command: sh test.sh
+  command: go test -v -race ./...
+- name: cover
+  service: caseconv
+  command: sh cover.sh

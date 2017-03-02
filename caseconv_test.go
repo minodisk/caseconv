@@ -1,17 +1,18 @@
 package caseconv_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/minodisk/caseconv"
 )
 
 func TestLowerCamelCase(t *testing.T) {
-	type Case struct {
+	t.Parallel()
+	for i, c := range []struct {
 		Input    string
 		Expected string
-	}
-	cases := []Case{
+	}{
 		{
 			Input:    "lower spaced string",
 			Expected: "lowerSpacedString",
@@ -56,21 +57,23 @@ func TestLowerCamelCase(t *testing.T) {
 			Input:    `Obi-Wan "Ben" Kenobi`,
 			Expected: "obiWanBenKenobi",
 		},
-	}
-	for _, c := range cases {
-		actual := caseconv.LowerCamelCase(c.Input)
-		if actual != c.Expected {
-			t.Errorf(`LowerCamelCase("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
-		}
+	} {
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
+			t.Parallel()
+			actual := caseconv.LowerCamelCase(c.Input)
+			if actual != c.Expected {
+				t.Errorf(`LowerCamelCase("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+			}
+		})
 	}
 }
 
 func TestUpperCamelCase(t *testing.T) {
-	type Case struct {
+	t.Parallel()
+	for i, c := range []struct {
 		Input    string
 		Expected string
-	}
-	cases := []Case{
+	}{
 		{
 			Input:    "lower spaced string",
 			Expected: "LowerSpacedString",
@@ -115,21 +118,23 @@ func TestUpperCamelCase(t *testing.T) {
 			Input:    `Obi-Wan "Ben" Kenobi`,
 			Expected: "ObiWanBenKenobi",
 		},
-	}
-	for _, c := range cases {
-		actual := caseconv.UpperCamelCase(c.Input)
-		if actual != c.Expected {
-			t.Errorf(`UpperCamelCase("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
-		}
+	} {
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
+			t.Parallel()
+			actual := caseconv.UpperCamelCase(c.Input)
+			if actual != c.Expected {
+				t.Errorf(`UpperCamelCase("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+			}
+		})
 	}
 }
 
 func TestSnakeCase(t *testing.T) {
-	type Case struct {
+	t.Parallel()
+	for i, c := range []struct {
 		Input    string
 		Expected string
-	}
-	cases := []Case{
+	}{
 		{
 			Input:    "lower spaced string",
 			Expected: "lower_spaced_string",
@@ -174,21 +179,23 @@ func TestSnakeCase(t *testing.T) {
 			Input:    `Obi-Wan "Ben" Kenobi`,
 			Expected: "Obi_Wan_Ben_Kenobi",
 		},
-	}
-	for _, c := range cases {
-		actual := caseconv.SnakeCase(c.Input)
-		if actual != c.Expected {
-			t.Errorf(`LowerSnakeCase("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
-		}
+	} {
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
+			t.Parallel()
+			actual := caseconv.SnakeCase(c.Input)
+			if actual != c.Expected {
+				t.Errorf(`LowerSnakeCase("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+			}
+		})
 	}
 }
 
 func TestLowerSnakeCase(t *testing.T) {
-	type Case struct {
+	t.Parallel()
+	for i, c := range []struct {
 		Input    string
 		Expected string
-	}
-	cases := []Case{
+	}{
 		{
 			Input:    "lower spaced string",
 			Expected: "lower_spaced_string",
@@ -233,21 +240,23 @@ func TestLowerSnakeCase(t *testing.T) {
 			Input:    `Obi-Wan "Ben" Kenobi`,
 			Expected: "obi_wan_ben_kenobi",
 		},
-	}
-	for _, c := range cases {
-		actual := caseconv.LowerSnakeCase(c.Input)
-		if actual != c.Expected {
-			t.Errorf(`LowerSnakeCase("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
-		}
+	} {
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
+			t.Parallel()
+			actual := caseconv.LowerSnakeCase(c.Input)
+			if actual != c.Expected {
+				t.Errorf(`LowerSnakeCase("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+			}
+		})
 	}
 }
 
 func TestUpperSnakeCase(t *testing.T) {
-	type Case struct {
+	t.Parallel()
+	for i, c := range []struct {
 		Input    string
 		Expected string
-	}
-	cases := []Case{
+	}{
 		{
 			Input:    "lower spaced string",
 			Expected: "LOWER_SPACED_STRING",
@@ -292,21 +301,23 @@ func TestUpperSnakeCase(t *testing.T) {
 			Input:    `Obi-Wan "Ben" Kenobi`,
 			Expected: "OBI_WAN_BEN_KENOBI",
 		},
-	}
-	for _, c := range cases {
-		actual := caseconv.UpperSnakeCase(c.Input)
-		if actual != c.Expected {
-			t.Errorf(`UpperSnakeCase("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
-		}
+	} {
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
+			t.Parallel()
+			actual := caseconv.UpperSnakeCase(c.Input)
+			if actual != c.Expected {
+				t.Errorf(`UpperSnakeCase("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+			}
+		})
 	}
 }
 
 func TestHyphens(t *testing.T) {
-	type Case struct {
+	t.Parallel()
+	for i, c := range []struct {
 		Input    string
 		Expected string
-	}
-	cases := []Case{
+	}{
 		{
 			Input:    "lower spaced string",
 			Expected: "lower-spaced-string",
@@ -351,21 +362,23 @@ func TestHyphens(t *testing.T) {
 			Input:    `Obi-Wan "Ben" Kenobi`,
 			Expected: "Obi-Wan-Ben-Kenobi",
 		},
-	}
-	for _, c := range cases {
-		actual := caseconv.Hyphens(c.Input)
-		if actual != c.Expected {
-			t.Errorf(`Hyphes("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
-		}
+	} {
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
+			t.Parallel()
+			actual := caseconv.Hyphens(c.Input)
+			if actual != c.Expected {
+				t.Errorf(`Hyphes("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+			}
+		})
 	}
 }
 
 func TestLowerHyphens(t *testing.T) {
-	type Case struct {
+	t.Parallel()
+	for i, c := range []struct {
 		Input    string
 		Expected string
-	}
-	cases := []Case{
+	}{
 		{
 			Input:    "lower spaced string",
 			Expected: "lower-spaced-string",
@@ -410,20 +423,22 @@ func TestLowerHyphens(t *testing.T) {
 			Input:    `Obi-Wan "Ben" Kenobi`,
 			Expected: "obi-wan-ben-kenobi",
 		},
-	}
-	for _, c := range cases {
-		actual := caseconv.LowerHyphens(c.Input)
-		if actual != c.Expected {
-			t.Errorf(`LowerHyphes("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
-		}
+	} {
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
+			t.Parallel()
+			actual := caseconv.LowerHyphens(c.Input)
+			if actual != c.Expected {
+				t.Errorf(`LowerHyphes("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+			}
+		})
 	}
 }
 func TestUpperHyphens(t *testing.T) {
-	type Case struct {
+	t.Parallel()
+	for i, c := range []struct {
 		Input    string
 		Expected string
-	}
-	cases := []Case{
+	}{
 		{
 			Input:    "lower spaced string",
 			Expected: "LOWER-SPACED-STRING",
@@ -468,11 +483,13 @@ func TestUpperHyphens(t *testing.T) {
 			Input:    `Obi-Wan "Ben" Kenobi`,
 			Expected: "OBI-WAN-BEN-KENOBI",
 		},
-	}
-	for _, c := range cases {
-		actual := caseconv.UpperHyphens(c.Input)
-		if actual != c.Expected {
-			t.Errorf(`UpperHyphens("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
-		}
+	} {
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
+			t.Parallel()
+			actual := caseconv.UpperHyphens(c.Input)
+			if actual != c.Expected {
+				t.Errorf(`UpperHyphens("%s") returns '%s', but expected '%s'`, c.Input, actual, c.Expected)
+			}
+		})
 	}
 }
