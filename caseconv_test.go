@@ -58,6 +58,7 @@ func TestLowerCamelCase(t *testing.T) {
 			Expected: "obiWanBenKenobi",
 		},
 	} {
+		c := c
 		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
 			t.Parallel()
 			actual := caseconv.LowerCamelCase(c.Input)
@@ -119,6 +120,7 @@ func TestUpperCamelCase(t *testing.T) {
 			Expected: "ObiWanBenKenobi",
 		},
 	} {
+		c := c
 		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
 			t.Parallel()
 			actual := caseconv.UpperCamelCase(c.Input)
@@ -180,6 +182,7 @@ func TestSnakeCase(t *testing.T) {
 			Expected: "Obi_Wan_Ben_Kenobi",
 		},
 	} {
+		c := c
 		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
 			t.Parallel()
 			actual := caseconv.SnakeCase(c.Input)
@@ -241,6 +244,7 @@ func TestLowerSnakeCase(t *testing.T) {
 			Expected: "obi_wan_ben_kenobi",
 		},
 	} {
+		c := c
 		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
 			t.Parallel()
 			actual := caseconv.LowerSnakeCase(c.Input)
@@ -302,6 +306,7 @@ func TestUpperSnakeCase(t *testing.T) {
 			Expected: "OBI_WAN_BEN_KENOBI",
 		},
 	} {
+		c := c
 		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
 			t.Parallel()
 			actual := caseconv.UpperSnakeCase(c.Input)
@@ -363,6 +368,7 @@ func TestHyphens(t *testing.T) {
 			Expected: "Obi-Wan-Ben-Kenobi",
 		},
 	} {
+		c := c
 		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
 			t.Parallel()
 			actual := caseconv.Hyphens(c.Input)
@@ -424,6 +430,7 @@ func TestLowerHyphens(t *testing.T) {
 			Expected: "obi-wan-ben-kenobi",
 		},
 	} {
+		c := c
 		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
 			t.Parallel()
 			actual := caseconv.LowerHyphens(c.Input)
@@ -484,6 +491,7 @@ func TestUpperHyphens(t *testing.T) {
 			Expected: "OBI-WAN-BEN-KENOBI",
 		},
 	} {
+		c := c
 		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
 			t.Parallel()
 			actual := caseconv.UpperHyphens(c.Input)
